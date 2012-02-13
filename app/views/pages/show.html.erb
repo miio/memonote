@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="alert alert-success"><%= notice %></p>
 
 <p>
   <b>Name:</b>
@@ -7,7 +7,7 @@
 
 <p>
   <b>Body:</b>
-  <%= @page.body %>
+  <%= markdown(@page.body).html_safe %>
 </p>
 
 

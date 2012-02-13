@@ -21,6 +21,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+# Markdown parser
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
+
+gem 'mark_it_up'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

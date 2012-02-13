@@ -1,4 +1,17 @@
-<%= form_for(@page) do |f| %>
+<script src="/mark_it_up/sets/markdown/set.js" type="text/javascript"></script>
+<link href="/mark_it_up/sets/markdown/style.css" media="all" rel="stylesheet" type="text/css" />
+
+<script src="/mark_it_up/jquery.markitup.js" type="text/javascript"></script>
+<script src="/mark_it_up/jquery.markitup.indent.js" type="text/javascript"></script>
+<link href="/mark_it_up/skins/markitup/style.css" media="all" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#body_editor').markItUp(myMarkdownSettings)
+    });
+</script>
+
+<%= form_for (@page) , :html => {:class => "form-horizontal"} do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
@@ -13,13 +26,13 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name , :class => "input-xlarge" %>
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :id => "body_editor", :class => "markituptextarea" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-actions">
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>
